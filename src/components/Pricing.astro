@@ -1,4 +1,6 @@
 ---
+import Button from '../../components/Button';
+
 type Plan = {
   name: string;
   price: string;
@@ -10,126 +12,97 @@ type Plan = {
 
 const plans: Plan[] = [
   {
-    name: 'Two classes / week',
-    price: '£42/mth',
-    description: 'All classes 45mins — Twice weekly classes (monthly subscription).',
-    buttonText: 'Book Now',
-    features: ['2 classes per week', 'Monthly billing', 'Priority scheduling'],
-  },
-  {
     name: 'One class / week',
-    price: '£22/mth',
-    description: 'All classes 45mins — Once weekly class (monthly subscription).',
-    buttonText: 'Book Now',
+    price: '£22',
+    description: 'Perfect for busy professionals. All classes 45mins.',
+    buttonText: 'Get Started',
     features: ['1 class per week', 'Monthly billing', 'Access booking system'],
   },
   {
+    name: 'Two classes / week',
+    price: '£42',
+    description: 'The sweet spot for consistent progress.',
+    buttonText: 'Most Popular',
+    features: ['2 classes per week', 'Monthly billing', 'Priority scheduling'],
+  },
+  {
     name: 'Unlimited classes',
-    price: '£55/mth',
-    description: 'All classes 45mins — Unlimited classes every month.',
-    buttonText: 'Book Now',
-    features: ['Unlimited classes', 'Monthly billing', 'Best value for frequent attendees'],
-    popular: true, // Moved to the right and marked as Most Popular
+    price: '£55',
+    description: 'Zero limits. Maximum results. Best value.',
+    buttonText: 'Go Unlimited',
+    features: ['Unlimited classes', 'Full coaching access', 'Best value per session'],
+    popular: true,
   },
 ];
 ---
 
-<section class="bg-white pt-16 pb-8">
-  <div class="mx-auto max-w-7xl px-4 lg:px-6">
-    <div class="mb-8 text-center">
-      <h2
-        class="mb-8 text-center text-[40px] leading-none font-extrabold tracking-wide text-[var(--primary-blue)] uppercase select-none sm:text-[48px] md:text-[60px]"
-      >
-        Pricing Plans
+<section id="pricing" class="bg-[var(--primary-white)] py-24">
+  <div class="mx-auto max-w-7xl px-6">
+    
+    <div class="mb-20 text-center lg:text-left">
+      <h2 class="text-5xl md:text-7xl font-black text-[var(--primary-black)] uppercase italic leading-none tracking-tighter">
+        Choose Your <span class="text-[var(--primary-blue)]">Level.</span>
       </h2>
-      <p class="mt-2" style="color: var(--primary-black);">
-        Choose the plan that fits your needs best. All classes 45mins.
-      </p>
+      <p class="mt-4 text-xl font-medium text-gray-500 uppercase tracking-widest">Simple Monthly Subscriptions</p>
     </div>
 
-    <!-- Desktop: all cards fit horizontally -->
-    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
       {
         plans.map((plan) => (
           <div
-            class={`flex transform flex-col rounded-2xl border p-6 shadow-sm transition hover:scale-102`}
-            style={
-              plan.popular
-                ? `border-color: var(--primary-blue); background-color: var(--primary-blue); min-height: 350px;`
-                : `border-color: #e5e7eb; background-color: white; min-height: 350px;`
-            }
+            class={`relative flex flex-col p-8 transition-all duration-300 border-t-8 shadow-2xl ${
+              plan.popular 
+                ? 'border-[var(--primary-blue)] bg-[#2C2A29] text-white scale-105 z-10' 
+                : 'border-[var(--primary-black)] bg-white text-[var(--primary-black)]'
+            }`}
           >
-            <div class="mb-3 flex items-center justify-between">
-              <h3
-                class="text-lg font-semibold"
-                style={`color: ${plan.popular ? 'white' : 'var(--primary-blue)'};`}
-              >
+            {plan.popular && (
+              <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-[var(--primary-blue)] px-4 py-1 text-[10px] font-black uppercase tracking-widest text-white">
+                Best Value
+              </div>
+            )}
+
+            <div class="mb-8">
+              <h3 class={`text-2xl font-black uppercase italic tracking-tighter ${plan.popular ? 'text-[var(--primary-blue)]' : 'text-[var(--primary-black)]'}`}>
                 {plan.name}
               </h3>
-              {plan.popular && (
-                <span
-                  class="rounded-full px-3 py-1 text-xs"
-                  style="background: rgba(255,255,255,0.12); color: white;"
-                >
-                  Most Popular
-                </span>
-              )}
+              <div class="mt-4 flex items-baseline gap-1">
+                <span class="text-5xl font-black tracking-tighter">{plan.price}</span>
+                <span class="text-lg font-bold opacity-60">/MTH</span>
+              </div>
+              <p class={`mt-4 text-sm font-medium leading-relaxed ${plan.popular ? 'text-gray-300' : 'text-gray-600'}`}>
+                {plan.description}
+              </p>
             </div>
 
-            <p
-              class="text-2xl font-bold"
-              style={`color: ${plan.popular ? 'white' : 'var(--primary-blue)'};`}
-            >
-              {plan.price}
-            </p>
-            <p
-              class="mt-1 text-sm"
-              style={`color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--primary-black)'};`}
-            >
-              {plan.description}
-            </p>
-
-            <button
-              class="mt-8 mb-3 cursor-pointer rounded-lg px-4 py-2 font-semibold transition"
-              style={
-                plan.popular
-                  ? 'background: white; color: var(--primary-blue);'
-                  : 'background: var(--primary-blue); color: white;'
-              }
-            >
-              {plan.buttonText}
-            </button>
-
-            <ul class="mt-5 flex-1 space-y-2 text-sm">
+            <ul class="mb-10 flex-1 space-y-4">
               {plan.features.map((feature) => (
-                <li class="flex items-start">
-                  <svg
-                    class="mr-2 h-4 w-4 flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    style={`color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--primary-blue)'};`}
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 111.414-1.414L8.414 12.586l7.293-7.293a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    />
+                <li class="flex items-center gap-3">
+                  <svg class="h-5 w-5 flex-shrink-0 text-[var(--primary-blue)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
-                  <span
-                    style={`color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--primary-black)'};`}
-                  >
-                    {feature}
-                  </span>
+                  <span class="text-sm font-bold uppercase tracking-tight">{feature}</span>
                 </li>
               ))}
             </ul>
+
+            <div class="mt-auto">
+              <Button 
+                client:visible 
+                text={plan.buttonText} 
+                variant={plan.popular ? "long" : "short"}
+                className="w-full"
+              />
+            </div>
           </div>
         ))
       }
     </div>
 
-    <p class="mt-6 text-center text-sm" style="color: var(--primary-black);">
-      For more information or to book your first class please contact
-    </p>
+    <div class="mt-16 text-center">
+      <p class="text-sm font-bold uppercase tracking-widest text-gray-400">
+        All classes are 45 minutes. Contact us for a <span class="text-[var(--primary-blue)] underline">Free Trial</span> session.
+      </p>
+    </div>
   </div>
 </section>

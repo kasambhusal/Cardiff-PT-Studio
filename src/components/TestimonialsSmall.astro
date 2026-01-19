@@ -1,43 +1,56 @@
 ---
 import { testimonialsSmall1 as testimonials } from '../data/testimonials';
 import type { Testimonial } from '../data/testimonials';
+import Button from '../../components/Button';
 ---
 
-<section class="mb-16 px-16 py-6">
-  <div class="max-w-8xl mx-auto">
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+<section class="py-24 bg-[var(--primary-white)]">
+  <div class="max-w-7xl mx-auto px-6">
+    
+    <div class="mb-16 text-center">
+      <h2 class="text-5xl md:text-7xl font-black text-[var(--primary-black)] uppercase italic leading-none tracking-tighter">
+        Real People. <span class="text-[var(--primary-blue)]">Real Results.</span>
+      </h2>
+      <p class="mt-4 text-xl text-gray-500 font-medium uppercase tracking-widest">Client Transformations</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       {
         testimonials.map((testimonial: Testimonial) => (
-          <div
-            class="flex h-52 flex-col overflow-hidden rounded-lg bg-white shadow-lg md:flex-row"
-            role="article"
-          >
-            {/* left: content (60%) */}
-            <div
-              class="flex w-full flex-col p-4 text-white md:w-3/5"
-              style="background-color: var(--primary-blue);"
-            >
-              <div class="mb-3">
-                <h3 class="mb-1 text-base font-semibold">{testimonial.name}</h3>
-                <p class="text-xs text-blue-100">{testimonial.role}</p>
-              </div>
-
-              <p class="line-clamp-4 flex-1 text-xs leading-relaxed text-white">
-                {testimonial.quote}
-              </p>
-            </div>
-
-            {/* right: image (40%) */}
-            <div class="relative w-full flex-shrink-0 md:w-2/5">
+          <div class="group relative flex flex-col bg-white overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+            
+            <div class="relative h-[400px] overflow-hidden">
               <img
                 src={testimonial.image || '/placeholder.svg'}
-                alt={`${testimonial.name} testimonial`}
-                class="h-full w-full object-cover"
+                alt={`${testimonial.name} transformation`}
+                class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div class="absolute top-2 left-2 bg-[var(--primary-black)] text-white text-[10px] font-black uppercase px-3 py-1 tracking-widest">
+                Success Story
+              </div>
+            </div>
+
+            <div class="p-8 flex flex-col flex-1 border-t-4 border-[var(--primary-blue)]">
+              <div class="mb-4">
+                <h3 class="text-2xl font-black text-[#44444C] uppercase italic leading-tight">
+                  {testimonial.name}
+                </h3>
+                <p class="text-[var(--primary-blue)] text-sm font-bold uppercase tracking-tighter">{testimonial.role}</p>
+              </div>
+
+              <blockquote class="relative italic text-gray-600 leading-relaxed mb-6">
+                <span class="text-4xl text-blue-200 absolute -top-4 -left-2 font-serif">“</span>
+                {testimonial.quote}
+              </blockquote>
             </div>
           </div>
         ))
       }
+    </div>
+
+    <div class="mt-20 text-center">
+      <p class="text-[#44444C] font-bold mb-6 italic text-xl">Are you ready to be our next success story?</p>
+      <Button client:visible text="Start Your Transformation" variant="long" />
     </div>
   </div>
 </section>
