@@ -1,147 +1,69 @@
 ---
 import { Image } from 'astro:assets';
 import joe from '../images/joe.png';
-import joe2 from '../images/joe2.png';
 import about1 from '../images/about-1.jpg';
-import about2 from '../images/about-2.jpg';
-import about3 from '../images/about-3.jpg';
 import about4 from '../images/about-4.jpg';
 import about5 from '../images/about-5.jpg';
 import about6 from '../images/about-6.jpg';
-import about7 from '../images/about-7.jpg';
-import about8 from '../images/about-8.jpg';
 ---
 
-<section id="about-us" class="bg-white pt-4 pb-12 lg:pt-4 lg:pb-16">
-  <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="relative overflow-hidden py-12">
-      <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
-        <!-- Background outlined word (larger, behind) -->
-        <h1
-          aria-hidden="true"
-          class="outline-hero pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-center text-[80px] leading-none font-extrabold tracking-wider uppercase select-none sm:text-[100px] md:text-[140px] lg:text-[180px] xl:text-[220px]"
-        >
-          ABOUT US
-        </h1>
-
-        <!-- Foreground headline (moved down, slightly smaller) -->
-        <div class="relative z-10 mt-32 text-center">
-          <h2
-            class="text-[18px] leading-tight font-extrabold tracking-normal text-black uppercase sm:text-[26px] md:text-[30px] lg:text-[42px]"
-          >
-            <span class="block">WE ARE NOT JUST A GYM, WE ARE A WHOLE COMMUNITY</span>
-          </h2>
-        </div>
-      </div>
+<section id="about-us" class="bg-white py-20 px-6">
+  <div class="max-w-7xl mx-auto">
+    
+    <div class="relative mb-20 text-center">
+      <h2 class="text-gray-100 text-7xl md:text-[12rem] font-black absolute inset-0 flex justify-center items-center select-none uppercase -z-0">
+        ABOUT
+      </h2>
+      <h3 class="relative z-10 text-3xl md:text-5xl font-black text-[#44444C] uppercase italic leading-none pt-12">
+        Not Just a Gym.<br/>A <span class="text-blue-600">Community.</span>
+      </h3>
     </div>
 
-    <div class="px-8 pb-8 lg:px-12 lg:pb-12">
-      <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
-        <!-- Left Content -->
-        <div class="lg:col-span-4">
-          <h2 class="mb-8 text-3xl leading-tight font-bold text-[var(--primary-blue)] lg:text-4xl">
-            Delivering Life Changing Body & Wellness Transformations
-          </h2>
-
-          <!-- First Row -->
-          <div class="mb-6 grid grid-cols-[65%_35%] gap-3">
-            <Image
-              src={about8}
-              alt="Training session"
-              class="h-20 w-full rounded-lg object-cover object-top"
-            />
-            <Image
-              src={about2}
-              alt="Nutrition planning"
-              class="h-20 w-full rounded-lg object-cover"
-            />
-          </div>
-
-          <!-- Second Row -->
-          <div class="mb-6 grid grid-cols-[35%_65%] gap-3">
-            <Image src={about1} alt="Outdoor workout" class="h-20 w-full rounded-lg object-cover" />
-            <Image
-              src={about4}
-              alt="Personal coaching"
-              class="h-20 w-full rounded-lg object-cover"
-            />
-          </div>
-
-          <button
-            class="hover:bg-opacity-90 flex cursor-pointer items-center rounded-lg bg-[var(--primary-blue)] px-6 py-3 text-sm font-medium text-white transition-colors duration-300 hover:bg-[var(--primary-black)]"
-          >
-            Book a Free Consultation
-            <svg
-              class="ml-2 h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"
-              ></path>
-            </svg>
-          </button>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <div class="lg:col-span-4 space-y-8 order-2 lg:order-1">
+        <div>
+          <h4 class="text-2xl font-black text-[#44444C] uppercase italic mb-4">20+ Years Experience</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Our highly skilled coaches work closely with you to map out a personalised journey—from building sustainable habits to achieving results that stick.
+          </p>
         </div>
 
-        <!-- Center Content - Main Image -->
-
-        <div class="flex justify-center lg:col-span-4">
-          <!-- First image -->
-          <Image
-            src={joe}
-            alt="Coach Joe"
-            class="z-10 h-64 w-full max-w-xs object-contain sm:h-80 md:h-96 lg:h-[28rem] lg:max-w-md"
-          />
-
-          <!-- Second image: hidden on large screens -->
-          <Image
-            src={joe2}
-            alt="Coach Joe"
-            class="mr-10 h-64 w-full max-w-xs object-contain sm:h-80 md:h-96 lg:hidden"
-          />
+        <div class="grid grid-cols-2 gap-2">
+          <Image src={about1} alt="Training" class="h-24 w-full object-cover  transition-all duration-500" />
+          <Image src={about4} alt="Coaching" class="h-24 w-full object-cover  transition-all duration-500" />
         </div>
 
-        <!-- Right Content -->
-        <div class="lg:col-span-4">
-          <div class="mb-8 grid grid-cols-1 gap-4">
-            <Image
-              src={about5}
-              alt="Group outdoor fitness"
-              class="object-middle h-28 w-full rounded-lg object-cover"
-            />
-            <Image
-              src={about6}
-              alt="Strength & cardio training"
-              class="h-28 w-full rounded-lg object-cover"
-            />
-            <div class="grid grid-cols-2 gap-3">
-              <Image
-                src={about3}
-                alt="Strength training"
-                class="h-20 w-full rounded-lg object-cover"
-              />
-              <Image
-                src={about7}
-                alt="Cardio workout"
-                class="h-20 w-full rounded-lg object-cover"
-              />
-            </div>
-          </div>
+        <button class="w-full lg:w-auto bg-[var(--primary-black)] hover:bg-black text-white px-10 py-5 rounded-none font-black text-lg transition-all hover:scale-105 uppercase tracking-tighter">
+          Book Free Consultation
+        </button>
+      </div>
 
-          <div class="text-sm leading-relaxed text-gray-600">
-            <p class="max-w-2x mx-auto mt-2 text-[var(--primary-black)]">
-              With over 20 years of experience, our highly skilled coaches and personal trainers
-              work closely with you to map out a personalised wellness journey from building
-              sustainable habits to achieving lasting results.
-            </p>
-            <p class="max-w-2x mx-auto mt-2 text-[var(--primary-black)]">
-              Together, we’ll help you eat for your body, train effectively for your goals, and
-              transform not just your physique, but your confidence and lifestyle for life.
-            </p>
-          </div>
+      <div class="lg:col-span-4 flex justify-center order-1 lg:order-2">
+        <div class="relative group">
+          <div class="absolute -inset-4 bg-gray-100 -z-10 skew-y-3 group-hover:skew-y-0 transition-transform duration-500"></div>
+          <Image 
+            src={joe} 
+            alt="Coach Joe" 
+            class="w-full max-w-[320px] object-contain drop-shadow-2xl"
+          />
         </div>
       </div>
+
+      <div class="lg:col-span-4 space-y-8 order-3">
+        <div>
+          <h4 class="text-2xl font-black text-[#44444C] uppercase italic mb-4">Transform Your Life</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Together, we’ll help you eat for your body and train effectively for your goals. We don't just change your physique; we change your lifestyle for life.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2">
+          <Image src={about5} alt="Studio" class="h-24 w-full object-cover  transition-all duration-500" />
+          <Image src={about6} alt="Result" class="h-24 w-full object-cover  transition-all duration-500" />
+        </div>
+      </div>
+
     </div>
   </div>
 </section>

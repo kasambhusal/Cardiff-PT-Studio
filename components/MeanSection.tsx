@@ -55,7 +55,7 @@ const meanData = [
 
 export default function MeanSection() {
   return (
-    <section className="min-h-screen w-full bg-white px-4 py-12 sm:px-6 lg:px-8">
+    <section className="min-h-screen w-full bg-[var(--primary-white)] px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="space-y-32">
           {meanData.map((item, index) => {
@@ -106,9 +106,8 @@ export default function MeanSection() {
 
                       {/* Rounded Square - Description with Blue Background (Right) */}
                       <div
-                        className="flex w-[48%] items-center justify-center p-6 shadow-xl sm:p-8"
+                        className="flex w-[48%] items-center justify-center p-6 shadow-xl sm:p-8 bg-[var(--primary-black)]"
                         style={{
-                          backgroundColor: '#0149ac',
                           borderRadius: '60px 60px 4px 60px',
                           aspectRatio: '1',
                         }}

@@ -4,6 +4,7 @@
   --primary-blue: #0149ac;
   --primary-black: #44444c;
   --primary-light: #d7e0ed;
+  --primary-white: #F8F8F8;
 }
 
 html {
@@ -66,4 +67,14 @@ html {
   .cooldown-card {
     filter: brightness(0.9);
   }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
 }

@@ -19,7 +19,7 @@ export default function HeaderReact() {
   ];
 
   return (
-    <header className="bg-white">
+    <header className="bg-[var(--primary-white)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
           {/* Logo */}
