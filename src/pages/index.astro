@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+import Header from '../../components/Header';
+import Layout from '../layouts/Layout.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ScrollingBanner from '../components/ScrollingBanner.astro';
+import ScheduleTable from '../../components/ScheduleTable';
+import WhyJoinUs from '../components/WhyJoinUs.astro';
+import DownloadAppSection from '../components/DownloadAppSection.astro';
+import JoinCommunitySection from '../components/JoinCommunitySection.astro';
+import Pricing from '../components/Pricing.astro';
+import Testimonials from '../../components/Testimonials';
+import Footer from '../components/Footer.astro';
+import TestimonialsSmall from '../components/TestimonialsSmall.astro';
+import HeroSection2 from '../../components/HeroSection2';
+import MeanSection from '../../components/MeanSection';
+---
+
+<Layout title="Cardiff PT Studio">
+  <Header client:load />
+
+  <main>
+    <HeroSection2 client:load />
+    <ScrollingBanner />
+    <MeanSection />
+    <AboutSection />
+    <WhyJoinUs />
+    <TestimonialsSmall />
+    <ScheduleTable client:load />
+    <DownloadAppSection />
+    <JoinCommunitySection />
+    <Pricing />
+    <Testimonials client:load />
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,43 @@
+---
+import { testimonialsSmall1 as testimonials } from '../data/testimonials';
+import type { Testimonial } from '../data/testimonials';
+---
+
+<section class="mb-16 px-16 py-6">
+  <div class="max-w-8xl mx-auto">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+      {
+        testimonials.map((testimonial: Testimonial) => (
+          <div
+            class="flex h-52 flex-col overflow-hidden rounded-lg bg-white shadow-lg md:flex-row"
+            role="article"
+          >
+            {/* left: content (60%) */}
+            <div
+              class="flex w-full flex-col p-4 text-white md:w-3/5"
+              style="background-color: var(--primary-blue);"
+            >
+              <div class="mb-3">
+                <h3 class="mb-1 text-base font-semibold">{testimonial.name}</h3>
+                <p class="text-xs text-blue-100">{testimonial.role}</p>
+              </div>
+
+              <p class="line-clamp-4 flex-1 text-xs leading-relaxed text-white">
+                {testimonial.quote}
+              </p>
+            </div>
+
+            {/* right: image (40%) */}
+            <div class="relative w-full flex-shrink-0 md:w-2/5">
+              <img
+                src={testimonial.image || '/placeholder.svg'}
+                alt={`${testimonial.name} testimonial`}
+                class="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

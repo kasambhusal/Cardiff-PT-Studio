@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+:root {
+  --primary-blue: #0149ac;
+  --primary-black: #44444c;
+  --primary-light: #d7e0ed;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.outline-hero {
+  color: transparent;
+  -webkit-text-stroke: 1.8px rgba(1, 73, 172, 0.6); /* softer blue outline */
+  text-stroke: 2px rgba(1, 73, 172, 0.25);
+  -webkit-text-fill-color: transparent;
+}
+
+/* small-screen tweak */
+@media (max-width: 420px) {
+  .outline-hero {
+    -webkit-text-stroke: 1.4px rgba(1, 73, 172, 0.6);
+    font-size: 48px !important;
+  }
+}
+
+.outline-hero-sm {
+  color: transparent;
+  -webkit-text-stroke: 1.4px rgba(1, 73, 172, 0.5); /* stronger small variant */
+  text-stroke: 1.4px rgba(1, 73, 172, 0.4);
+  -webkit-text-fill-color: transparent;
+}
+
+/* small screen tweak */
+@media (max-width: 420px) {
+  .outline-hero-sm {
+    -webkit-text-stroke: 1px rgba(1, 73, 172, 0.4);
+    font-size: 40px !important;
+  }
+}
+
+/* for schedule table */
+.heading {
+  color: var(--primary-light);
+}
+.chip {
+  background: var(--primary-light);
+  color: var(--primary-black);
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 0.75rem;
+}
+
+/* make table header use the primary blue */
+.tbl-header {
+  background: var(--primary-blue);
+}
+.tbl-header th {
+  color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+  .workout-card,
+  .cooldown-card {
+    filter: brightness(0.9);
+  }
+}

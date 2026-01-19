@@ -1,0 +1,135 @@
+---
+type Plan = {
+  name: string;
+  price: string;
+  description: string;
+  buttonText: string;
+  features: string[];
+  popular?: boolean;
+};
+
+const plans: Plan[] = [
+  {
+    name: 'Two classes / week',
+    price: '£42/mth',
+    description: 'All classes 45mins — Twice weekly classes (monthly subscription).',
+    buttonText: 'Book Now',
+    features: ['2 classes per week', 'Monthly billing', 'Priority scheduling'],
+  },
+  {
+    name: 'One class / week',
+    price: '£22/mth',
+    description: 'All classes 45mins — Once weekly class (monthly subscription).',
+    buttonText: 'Book Now',
+    features: ['1 class per week', 'Monthly billing', 'Access booking system'],
+  },
+  {
+    name: 'Unlimited classes',
+    price: '£55/mth',
+    description: 'All classes 45mins — Unlimited classes every month.',
+    buttonText: 'Book Now',
+    features: ['Unlimited classes', 'Monthly billing', 'Best value for frequent attendees'],
+    popular: true, // Moved to the right and marked as Most Popular
+  },
+];
+---
+
+<section class="bg-white pt-16 pb-8">
+  <div class="mx-auto max-w-7xl px-4 lg:px-6">
+    <div class="mb-8 text-center">
+      <h2
+        class="mb-8 text-center text-[40px] leading-none font-extrabold tracking-wide text-[var(--primary-blue)] uppercase select-none sm:text-[48px] md:text-[60px]"
+      >
+        Pricing Plans
+      </h2>
+      <p class="mt-2" style="color: var(--primary-black);">
+        Choose the plan that fits your needs best. All classes 45mins.
+      </p>
+    </div>
+
+    <!-- Desktop: all cards fit horizontally -->
+    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        plans.map((plan) => (
+          <div
+            class={`flex transform flex-col rounded-2xl border p-6 shadow-sm transition hover:scale-102`}
+            style={
+              plan.popular
+                ? `border-color: var(--primary-blue); background-color: var(--primary-blue); min-height: 350px;`
+                : `border-color: #e5e7eb; background-color: white; min-height: 350px;`
+            }
+          >
+            <div class="mb-3 flex items-center justify-between">
+              <h3
+                class="text-lg font-semibold"
+                style={`color: ${plan.popular ? 'white' : 'var(--primary-blue)'};`}
+              >
+                {plan.name}
+              </h3>
+              {plan.popular && (
+                <span
+                  class="rounded-full px-3 py-1 text-xs"
+                  style="background: rgba(255,255,255,0.12); color: white;"
+                >
+                  Most Popular
+                </span>
+              )}
+            </div>
+
+            <p
+              class="text-2xl font-bold"
+              style={`color: ${plan.popular ? 'white' : 'var(--primary-blue)'};`}
+            >
+              {plan.price}
+            </p>
+            <p
+              class="mt-1 text-sm"
+              style={`color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--primary-black)'};`}
+            >
+              {plan.description}
+            </p>
+
+            <button
+              class="mt-8 mb-3 cursor-pointer rounded-lg px-4 py-2 font-semibold transition"
+              style={
+                plan.popular
+                  ? 'background: white; color: var(--primary-blue);'
+                  : 'background: var(--primary-blue); color: white;'
+              }
+            >
+              {plan.buttonText}
+            </button>
+
+            <ul class="mt-5 flex-1 space-y-2 text-sm">
+              {plan.features.map((feature) => (
+                <li class="flex items-start">
+                  <svg
+                    class="mr-2 h-4 w-4 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    style={`color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--primary-blue)'};`}
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M16.707 5.293a1 1 0 010 1.414L8.414 15l-4.121-4.121a1 1 0 111.414-1.414L8.414 12.586l7.293-7.293a1 1 0 011.414 0z"
+                      clip-rule="evenodd"
+                    />
+                  </svg>
+                  <span
+                    style={`color: ${plan.popular ? 'rgba(255,255,255,0.9)' : 'var(--primary-black)'};`}
+                  >
+                    {feature}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-6 text-center text-sm" style="color: var(--primary-black);">
+      For more information or to book your first class please contact
+    </p>
+  </div>
+</section>

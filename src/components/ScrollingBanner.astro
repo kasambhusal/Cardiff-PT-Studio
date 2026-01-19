@@ -1,0 +1,61 @@
+---
+// Scrolling Banner component
+---
+
+<section class="overflow-hidden bg-[var(--primary-blue)] py-4">
+  <div class="animate-scroll flex">
+    <!-- Infinite scrolling banner text -->
+    <div
+      class="flex items-center text-lg font-bold whitespace-nowrap text-[var(--primary-light)] lg:text-xl"
+    >
+      <span class="mx-8">Off road parking</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Male and female changing rooms</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Therapy room</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">10+ TRAINERS</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">2,700+ sq foot studio</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Office/consultation room</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Coffee/consultation area</span>
+      <span class="text-[var(--primary-light)]">→</span>
+    </div>
+    <!-- Duplicate for seamless loop -->
+    <div
+      class="flex items-center text-lg font-bold whitespace-nowrap text-[var(--primary-light)] lg:text-xl"
+    >
+      <span class="mx-8">Off road parking</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Male and female changing rooms</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Therapy room</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">10+ TRAINERS</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">2,700+ sq foot studio</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Office/consultation room</span>
+      <span class="text-[var(--primary-light)]">→</span>
+      <span class="mx-8">Coffee/consultation area</span>
+      <span class="text-[var(--primary-light)]">→</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+</style>

@@ -1,0 +1,85 @@
+---
+import { FaFacebookF, FaInstagram } from 'react-icons/fa';
+import { Image } from 'astro:assets';
+import logo from '../../public/logo-white.webp';
+
+const currentDate = new Date(Date.now());
+const currentYear = currentDate.getFullYear();
+---
+
+<footer class="bg-[var(--primary-blue)] py-12 text-white">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-4">
+      <!-- Brand -->
+      <div class="col-span-1 md:col-span-2">
+        <div class="mb-4">
+          <Image src={logo} alt="Cardiff PT Studio" class="h-12 w-auto" />
+        </div>
+        <p class="mb-6 max-w-md text-[var(--primary-light,#e5e7eb)]">
+          Transform your body, boost your confidence, and build the strength to lead with power.
+          Join our community of champions.
+        </p>
+        <div class="flex space-x-4">
+          <a
+            href="https://www.facebook.com/share/667ASau6rMnJpvqw/?mibextid=LQQJ4d"
+            class="text-white/70 transition-colors hover:text-white"
+            aria-label="Facebook"
+          >
+            <FaFacebookF className="h-6 w-6 text-white/70" />
+            <span class="sr-only">Facebook</span>
+          </a>
+
+          <a
+            href="https://www.instagram.com/cardiffptstudio/"
+            class="text-white/70 transition-colors hover:text-white"
+            aria-label="Instagram"
+          >
+            <FaInstagram className="h-6 w-6 text-white/70" />
+            <span class="sr-only">Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="mb-4 text-lg font-semibold">Quick Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#hero" class="text-white/70 transition-colors hover:text-white">Home</a></li>
+          <li>
+            <a href="#about-us" class="text-white/70 transition-colors hover:text-white">About Us</a
+            >
+          </li>
+          <li>
+            <a href="#schedule" class="text-white/70 transition-colors hover:text-white"
+              >Timetable</a
+            >
+          </li>
+          <li>
+            <a href="#download-app" class="text-white/70 transition-colors hover:text-white"
+              >Our App</a
+            >
+          </li>
+          <li>
+            <a href="#pricing" class="text-white/70 transition-colors hover:text-white">Pricing</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="mb-4 text-lg font-semibold">Contact</h4>
+        <ul class="space-y-2 text-white/70">
+          <li class="font-semibold">Cardiff PT Studio,</li>
+          <li>135 Maindy Road Cardiff CF24 4HN</li>
+          <li>Tel: 07796 144 082</li>
+          <li>Email: info@cardiffptstudio.co.uk</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-8 border-t border-white/20 pt-8 text-center text-white/70">
+      <p>Copyright of Cardiff PT Studio &copy; {currentYear}.</p>
+      <p>All rights reserved.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,93 @@
+---
+import { Image } from 'astro:assets';
+import community1 from '../images/community-1.jpg';
+import community2 from '../images/community-2.jpeg';
+import community3 from '../images/community-3.jpeg';
+---
+
+<section
+  id="join-us"
+  class="relative overflow-hidden bg-[var(--primary-blue)] px-4 py-24 text-white sm:px-6 lg:px-8"
+>
+  <div class="pointer-events-none absolute inset-0 opacity-6">
+    <div
+      class="absolute inset-0"
+      style={{
+        backgroundImage: `repeating-linear-gradient(
+          45deg,
+          transparent,
+          transparent 10px,
+          rgba(255,255,255,0.03) 10px,
+          rgba(255,255,255,0.03) 11px
+        )`,
+      }}
+    >
+    </div>
+  </div>
+
+  <div class="relative mx-auto max-w-7xl">
+    <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+      <!-- Left Content -->
+      <div class="text-center lg:text-left">
+        <h2
+          class="mb-6 text-4xl leading-tight font-extrabold tracking-wide text-white sm:text-4xl lg:text-5xl"
+        >
+          SUPPORTIVE COMMUNITY
+        </h2>
+
+        <!-- made description slightly smaller -->
+        <p class="mb-8 max-w-lg text-base leading-relaxed text-white opacity-95 sm:text-sm">
+          This is where you will have the opportunity to speak with one of our PROFESSIONAL &amp;
+          UNDERSTANDING coaches, who will discuss your needs and help you understand what may be
+          required to start progressing with your FITNESS ambitions.
+        </p>
+
+        <a
+          href="#membership"
+          class="inline-flex items-center rounded-full bg-[var(--primary-black)] px-6 py-3 text-base font-bold text-white transition-all duration-300 hover:bg-[var(--primary-light)] hover:text-black hover:shadow-lg focus:ring-4 focus:ring-[var(--primary-light)] focus:outline-none"
+          aria-label="Join the community"
+        >
+          JOIN NOW
+        </a>
+      </div>
+
+      <!-- Right Content - stacked Community Images -->
+      <div class="flex justify-center lg:justify-end">
+        <div class="relative flex items-center" aria-hidden="true">
+          <!-- Left (bottom) -->
+          <div
+            class="relative z-10 h-36 w-36 overflow-hidden rounded-full border-[10px] border-[var(--primary-blue)] shadow-xs sm:h-40 sm:w-40 md:h-48 md:w-48"
+          >
+            <Image
+              src={community1}
+              alt="Community member 1"
+              class="block h-full w-full object-cover"
+            />
+          </div>
+
+          <!-- Middle (middle) - pulled left on top of left -->
+          <div
+            class="relative z-20 -ml-8 h-40 w-40 overflow-hidden rounded-full border-[10px] border-[var(--primary-blue)] shadow-xs sm:-ml-10 sm:h-44 sm:w-44 md:h-56 md:w-56"
+          >
+            <Image
+              src={community2}
+              alt="Community member 2"
+              class="block h-full w-full object-cover"
+            />
+          </div>
+
+          <!-- Right (top) - pulled left on top of middle, highest z -->
+          <div
+            class="relative z-30 -ml-8 h-44 w-44 overflow-hidden rounded-full border-[10px] border-[var(--primary-blue)] shadow-xs sm:-ml-10 sm:h-48 sm:w-48 md:h-60 md:w-60"
+          >
+            <Image
+              src={community3}
+              alt="Community member 3"
+              class="block h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

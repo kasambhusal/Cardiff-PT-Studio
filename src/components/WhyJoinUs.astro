@@ -1,0 +1,133 @@
+---
+import { Image } from "astro:assets";
+import { FaRegClock } from "react-icons/fa6";
+import { FiUser, FiCoffee } from "react-icons/fi";
+import { IoHome } from "react-icons/io5";
+import whyus1 from "../images/whyus-1.jpg";
+import whyus2 from "../images/whyus-2.jpg";
+import whyus3 from "../images/whyus-3.jpg";
+
+const faqData = [
+  {
+    id: "facilities",
+    icon: IoHome,
+    question: "World-Class Facilities",
+    answer:
+      "Our fully equipped gym is dedicated to personal training and coaching. With equipment including treadmills, rowers, power racks, Olympic weights, TRX, boxing gear, and a 25m AstroTurf lane, we provide everything needed to achieve your goals efficiently.",
+  },
+  {
+    id: "coaches",
+    icon: FiUser,
+    question: "Expert & Personalised Coaching",
+    answer:
+      "Our team of highly skilled coaches brings over 20 years of combined experience. We create tailored programmes that meet you where you are, ensuring progress whether your goal is weight loss, muscle gain, or overall fitness.",
+  },
+  {
+    id: "consultation",
+    icon: FiCoffee,
+    question: "Free Consultation & Wellness Journey",
+    answer:
+      "Start with a no-strings-attached consultation to discuss your goals, habits, and lifestyle. We design a personalised wellness journey including nutrition guidance, adaptive training, and ongoing coaching to help you succeed.",
+  },
+  {
+    id: "time",
+    icon: FaRegClock,
+    question: "Flexible Training Plans",
+    answer:
+      "Our programmes are designed to fit your lifestyle. Most clients train 2–3 times per week with a combination of coached sessions and self-directed workouts, ensuring sustainable progress without overwhelming your schedule.",
+  },
+];
+---
+
+<section id="why-us" class="py-8 lg:py-16 mb-4 bg-white" x-data="{ openItem: null }">
+  <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-20">
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <!-- Left side: Images -->
+      <div class="space-y-6">
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src={whyus1}
+            alt="Modern gym facility with workout equipment"
+            class="w-full h-96 object-cover object-top"
+          />
+        </div>
+
+      <div class="grid grid-cols-[60%_40%] gap-6 mr-5">
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src={whyus2}
+            alt="Cardio and weight training area"
+            class="w-full h-48 object-cover"
+          />
+        </div>
+        <div class="rounded-xl overflow-hidden shadow-lg">
+          <Image
+            src={whyus3}
+            alt="Personal training and coaching session"
+            class="w-full h-48 object-cover"
+          />
+        </div>
+      </div>
+
+
+      </div>
+
+      <!-- Right side: FAQ accordion -->
+      <div class="space-y-6">
+       
+        <div>
+          <h2 class="select-none text-center
+          text-[40px] sm:text-[48px] md:text-[60px]
+          font-extrabold uppercase tracking-wide leading-none text-black mb-8">Why join us?</h2>
+        </div>
+        <div class="space-y-4">
+          {faqData.map((item) => (
+            <div
+              class="border border-[var(--primary-light)] rounded-xl overflow-hidden transition-all duration-300"
+              x-data={`{ id: '${item.id}' }`}
+            >
+              <button
+                @click="openItem = (openItem === id ? null : id)"
+                class="w-full cursor-pointer px-6 py-4 flex items-center justify-between text-left transition-colors duration-300"
+              >
+                <div class="flex items-center gap-4">
+                  <div class="flex-shrink-0 w-10 h-10 bg-[var(--primary-blue)] rounded-full flex items-center justify-center text-white">
+                    <item.icon className="w-5 h-5" />
+                  </div>
+                  <span class="font-medium text-[var(--primary-black)]">{item.question}</span>
+                </div>
+                <svg
+                  class="w-5 h-5 text-gray-400 transition-transform duration-300"
+                  :class="openItem === id ? 'rotate-180' : ''"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              <div
+                x-ref="panel"
+                x-cloak
+                style="max-height: 0px; padding-top: 0px; padding-bottom: 0px; overflow: hidden;"
+                x-bind:style="openItem === id
+                  ? `max-height: ${$refs.panel.scrollHeight + 50}px; padding-top: 12px; padding-bottom: 40px; transition: max-height ${Math.min(1200, Math.max(450, Math.round(($refs.panel.scrollHeight + 50) * 0.7)))}ms cubic-bezier(.2,.8,.2,1), padding ${Math.min(1200, Math.max(450, Math.round(($refs.panel.scrollHeight + 50) * 0.7)))}ms cubic-bezier(.2,.8,.2,1)`
+                  : 'max-height: 0px; padding-top: 0px; padding-bottom: 0px; transition: max-height 360ms cubic-bezier(.2,.8,.2,1), padding 360ms cubic-bezier(.2,.8,.2,1)'"
+              >
+                <div class="pl-14 pr-4 text-xs md:text-sm">
+                  <p class="text-gray-600 leading-relaxed m-0">{item.answer}</p>
+                </div>
+              </div>
+
+
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://unpkg.com/alpinejs" defer></script>
+</section>
