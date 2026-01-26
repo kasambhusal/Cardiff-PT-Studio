@@ -9,47 +9,47 @@ const meanData = [
     firstWord: 'indset',
     secondWord: 'Mastery',
     description:
-      'Develop the mental strength and positive mindset needed for lasting health transformation. Master your thoughts, build healthy habits, and create a foundation for sustainable wellness through mindful eating practices and conscious lifestyle choices.',
+      'Develop the mental strength and positive mindset needed for lasting health transformation. Master your thoughts, build healthy habits, and create a foundation for sustainable wellness.',
     videoUrl: 'https://player.vimeo.com/video/574565642?h=1f91785ad0',
     testimonialImage: gerwyn.src,
-    exampleTitle: 'Self Confessed Unhealthy & Unhappy',
-    exampleDescription: 'Gerwyn Pritchard, Discovered His BEST VERSION!',
+    exampleTitle: 'UNHEALTHY TO UNSTOPPABLE',
+    exampleDescription: 'Gerwyn linked his vision to reality and found his best version.',
   },
   {
     letter: 'E',
     firstWord: 'xercise',
     secondWord: 'Excellence',
     description:
-      'Achieve peak physical performance with structured, efficient workout programs designed to fit your busy lifestyle. Whether you have 30 minutes or an hour, our expert-designed routines help you build strength, improve endurance, and reach your fitness goals.',
+      'Achieve peak physical performance with structured, efficient workout programs designed to fit your busy lifestyle. Whether you have 30 minutes or an hour, we build strength that lasts.',
     videoUrl: 'https://player.vimeo.com/video/680586649?h=abee859150',
     testimonialImage: debbie.src,
-    exampleTitle: 'Busy Health Professional & Mum Debbie',
+    exampleTitle: 'BUSY MUM. NEW CONFIDENCE.',
     exampleDescription:
-      'Really Lacked The Confidence & Knowledge To Embark On Her Body & Lifestyle Transformation, With Structured & Detailed Coaching, Debbie Was Able To Overcome!',
+      'Debbie mastered the structure to transform her body and lifestyle.',
   },
   {
     letter: 'A',
     firstWord: 'cute',
     secondWord: 'Accountability',
     description:
-      'Track your progress and stay committed to your health goals with proven accountability systems. Monitor your daily nutrition, understand the glycemic index of foods, and use the nutrition pyramid to make informed choices that keep you on track for success.',
+      'Track your progress and stay committed with proven accountability systems. Monitor your nutrition and use the pyramid to make informed choices that keep you on track for success.',
     videoUrl: 'https://player.vimeo.com/video/697878456?h=966b7b3a52',
     testimonialImage: shane.src,
-    exampleTitle: 'Busy Family Man Shane From Nottingham',
+    exampleTitle: 'BELLY FAT TO PEAK PHYSIQUE',
     exampleDescription:
-      'Struggled With Belly Fat For Many Years, But With The Tailored Support Given & JUST 12 WEEKS With the Goals Set, Shane Achieved Some Incredible RESULTS!',
+      'Shane crushed a 12-week blueprint to build a body that lasts.',
   },
   {
     letter: 'N',
     firstWord: 'ourishing',
     secondWord: 'Nutrition',
     description:
-      'Fuel your body with science-backed nutritional strategies and delicious, healthy recipes. Learn to balance macronutrients, make smart food swaps, and discover meal ideas that nourish your body while satisfying your taste buds for long-term wellness.',
+      'Fuel your body with science-backed strategies. Learn to balance macronutrients, make smart food swaps, and discover meal ideas that nourish your body while satisfying your taste buds.',
     videoUrl: 'https://player.vimeo.com/video/561328871?h=071045ddad',
     testimonialImage: dave.src,
-    exampleTitle: 'Dave From Chester',
+    exampleTitle: 'THE CAREER-LIFE BALANCE',
     exampleDescription:
-      'Lacked The Understanding Of How To Achieve His Body Transformation Goals, Whilst Striking The Balance Between A Demanding Job & Family Life, But With Our 12 Week Formula, THIS CHANGED!',
+      'Dave applied our 12-week formula to reshape his goals and his life.',
   },
 ];
 
@@ -57,24 +57,32 @@ export default function MeanSection() {
   return (
     <section className="min-h-screen w-full bg-[var(--primary-white)] px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
-        <div className="space-y-32">
+        <div className="flex flex-col gap-24 lg:gap-32">
           {meanData.map((item, index) => {
             const isEven = index % 2 === 0;
+            const stepNumber = `0${index + 1}`;
 
             return (
               <div
                 key={item.letter}
-                className={`flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12 ${
+                className={`flex flex-col lg:flex-row lg:items-stretch ${
                   isEven ? '' : 'lg:flex-row-reverse'
                 }`}
               >
-                <div className="space-y-6 lg:w-[40%]">
+                {/* COLUMN 1: Text Content */}
+                <div className="flex flex-col justify-center space-y-6 lg:w-[40%]">
                   <div className="space-y-2">
-                    <h2 className="text-5xl leading-tight font-bold text-slate-800 sm:text-6xl lg:text-7xl">
-                      <span className="text-9xl" style={{ color: '#0149ac' }}>
-                        {item.letter}
+                    <h2 className="text-5xl leading-tight font-bold text-slate-800 sm:text-6xl lg:text-7xl flex items-baseline gap-4">
+                      {/* Mobile Number Indicator */}
+                      <span className="lg:hidden text-2xl font-black text-slate-200">
+                         {stepNumber}.
                       </span>
-                      {item.firstWord}
+                      <span>
+                        <span className="text-9xl" style={{ color: '#0149ac' }}>
+                          {item.letter}
+                        </span>
+                        {item.firstWord}
+                      </span>
                     </h2>
                     <h2 className="text-5xl leading-tight font-bold text-slate-800 sm:text-6xl lg:text-7xl">
                       {item.secondWord}
@@ -85,11 +93,25 @@ export default function MeanSection() {
                   </p>
                 </div>
 
-                <div className="lg:w-[60%]">
+                {/* COLUMN 2: The Vertical Track (Desktop Only) */}
+                <div className="hidden lg:flex lg:w-[10%] flex-col items-center justify-center relative">
+                    {/* The Vertical Line */}
+                    <div className="absolute top-0 bottom-0 w-px bg-slate-200"></div>
+                    
+                    {/* The Number Bubble */}
+                    <div 
+                        className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-white border-4 border-[#0149ac] shadow-lg"
+                    >
+                        <span className="text-xl font-black text-[#0149ac]">{stepNumber}</span>
+                    </div>
+                </div>
+
+                {/* COLUMN 3: Media (Images & Video) */}
+                <div className="mt-8 lg:mt-0 lg:w-[50%]">
                   <div className="space-y-4">
                     {/* Top Row - Image and Description */}
                     <div className="flex gap-4">
-                      {/* Fat L-shape - Image (Left) */}
+                      {/* Fat L-shape - Image */}
                       <div
                         className="w-[48%] overflow-hidden shadow-xl"
                         style={{
@@ -104,40 +126,44 @@ export default function MeanSection() {
                         />
                       </div>
 
-                      {/* Rounded Square - Description with Blue Background (Right) */}
+                      {/* Dark Description Card */}
                       <div
-                        className="flex w-[48%] items-center justify-center p-6 shadow-xl sm:p-8 bg-[var(--primary-black)]"
+                        className="flex w-[50%] flex-col justify-center p-6 sm:p-8 bg-slate-900"
                         style={{
-                          borderRadius: '60px 60px 4px 60px',
-                          aspectRatio: '1',
+                          borderRadius: '40px 40px 4px 40px',
+                          boxShadow: '12px 12px 0px #0149ac',
                         }}
                       >
-                        <div className="text-center">
-                          <h3 className="mb-3 text-sm font-semibold text-white sm:text-base lg:text-lg">
+                        <div className="text-left space-y-3">
+                          <span className="inline-block px-3 py-1 bg-[#0149ac] text-white text-[9px] font-bold uppercase tracking-widest rounded-full mb-1">
+                            Result
+                          </span>
+                          <h3 className="text-xl sm:text-3xl font-black text-white uppercase italic leading-tight">
                             {item.exampleTitle}
                           </h3>
-                          <p className="text-xs leading-relaxed text-white sm:text-sm">
+                          <p className="text-l leading-relaxed text-gray-300 font-medium border-l-2 border-[#0149ac] pl-3">
                             {item.exampleDescription}
                           </p>
                         </div>
                       </div>
                     </div>
 
-                    {/* Video (Bottom) */}
+                    {/* Video Section */}
                     <div
-                      className="overflow-hidden"
+                      className="mt-6 overflow-hidden bg-black shadow-2xl"
                       style={{
-                        borderRadius: '40px',
+                        borderRadius: '24px',
                         aspectRatio: '16/9',
+                        border: '4px solid #f8fafc',
                       }}
                     >
                       <iframe
                         src={item.videoUrl}
-                        title={`${item.letter} - ${item.firstWord} ${item.secondWord} Example`}
-                        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+                        title={`${item.letter} Video`}
+                        allow="autoplay; fullscreen; picture-in-picture"
                         allowFullScreen
-                        className="h-full w-full"
-                        style={{ border: 0, display: 'block' }}
+                        className="h-full w-full opacity-90 hover:opacity-100 transition-opacity"
+                        style={{ border: 0 }}
                       />
                     </div>
                   </div>
