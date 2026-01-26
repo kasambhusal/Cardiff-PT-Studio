@@ -86,7 +86,7 @@ export default function Testimonials() {
                 {/* CALL TO ACTION BUTTON (Every 3 Testimonials) */}
                 {(i + 1) % 3 === 0 && (
                   <div className="relative flex flex-col items-center justify-center py-20 space-y-6 z-20">
-                    {/* Visual break in the line for the button */}
+                    {/* Visual break in the line*/}
                     <div className="hidden lg:block absolute inset-0 self-center w-1 bg-[#F8F8F8] -z-10" />
                     
                     <h3 className="text-2xl md:text-3xl font-black uppercase italic text-slate-900 text-center">
